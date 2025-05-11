@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayaan Choudhury - Personal Website</title>
+  <!-- Google Font: Lekton -->
+  <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Lekton', Arial, sans-serif; margin: 0; display: flex; }
+    #sidebar { width: 20%; background-color: #333; color: white; padding: 1%; display: flex; flex-direction: column; align-items: flex-start; white-space: nowrap; position: fixed; height: 100vh; overflow-y: auto; transition: transform 0.3s ease-in-out; }
+    #profile-picture { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 1em; }
+    #sidebar h2 { margin: 0 0 1em 0; }
+    #sidebar a { color: white !important; text-decoration: none; padding: 2% 5%; display: inline-block; }
+    #sidebar a:hover { background-color: #575757; }
+    #content { flex-grow: 1; display: flex; flex-direction: column; min-height: 100vh; margin-left: 25%; margin-right: 10%; padding: 2em 0; transition: margin-left 0.3s ease-in-out; }
+    .section { display: none; flex-direction: column; padding-top: 1em; }
+    .active { display: block; }
+    a { color: #0066cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .contact-links a { margin-right: 1em; }
+    .experience h3 { margin: 0; }
+    .location, .dates, .role { margin: 0.2em 0; }
+    .responsibilities { list-style-type: disc; padding-left: 1.2em; }
+    .project { margin-bottom: 2em; }
+    #menu-button { display: none; background-color: #333; color: white; border: none; padding: 10px 15px; font-size: 16px; position: fixed; top: 10px; left: 10px; cursor: pointer; }
+    @media (max-width: 768px) { #sidebar { transform: translateX(-100%); width: 60%; } #sidebar.show { transform: translateX(0); } #menu-button { display: block; } }
+  </style>
+  <script>
+    // Navigation functions must be defined before usage
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('show');
+      adjustContentMargin();
+    }
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('show');
+      adjustContentMargin();
+    }
+    function adjustContentMargin() {
+      const content = document.getElementById('content');
+      if (window.innerWidth > 768) {
+        content.style.marginLeft = '25%';
+      } else {
+        content.style.marginLeft = document.getElementById('sidebar').classList.contains('show') ? '25%' : '10%';
+      }
+    }
+    window.addEventListener('resize', adjustContentMargin);
+    // Ensure initial layout
+    document.addEventListener('DOMContentLoaded', adjustContentMargin);
+  </script>
+</head>
+<body>
+  <button id="menu-button" onclick="toggleSidebar()">☰ Menu</button>
+  <div id="sidebar">
+    <!-- Update the src below to your profile photo path -->
+    <img id="profile-picture" src="images/profile2.jpeg" alt="Ayaan Choudhury">
+    <h2>Ayaan Choudhury</h2>
+    <a href="#about" onclick="showSection('about'); closeSidebar();">About Me</a>
+    <a href="#background" onclick="showSection('background'); closeSidebar();">Background</a>
+    <a href="#projects" onclick="showSection('projects'); closeSidebar();">Projects</a>
+  </div>
+  <div id="content">
+    <!-- About Me Section -->
+    <div id="about" class="section active">
+      <h1>About Me</h1>
+      <p>Hello! I'm <strong>Ayaan Choudhury</strong>, a pre-final-year Mechanical Engineering student at the Indian Institute of Technology Jodhpur. I conduct research in AI/ML with a focus on computer vision and robotics, emphasizing machine vision and shared autonomy techniques.</p>
+      <h3>🔧 Core Skills</h3>
+      <ul>
+        <li>🖥️ <strong>Programming Languages:</strong> C, C++, Python</li>
+        <li>⚙️ <strong>Simulation & CAD:</strong> SolidWorks, PyBullet</li>
+        <li>🤖 <strong>Machine Learning & AI:</strong> Algorithms, Model Optimization</li>
+        <li>🎯 <strong>Reinforcement Learning:</strong> Q-Learning, DQN, Policy Gradients</li>
+        <li>🧠 <strong>Deep Learning:</strong> MLPs, CNNs, RNNs, Attention, Transformers, Autoencoders, GANs, Diffusion Models</li>
+        <li>📸 <strong>Computer Vision:</strong> OpenCV, YOLO, detectron2, Tesseract, PaddleOCR, EasyOCR, LayoutParser</li>
+        <li>📚 <strong>Libraries & Frameworks:</strong> PyTorch, TensorFlow, NumPy, Pandas, Matplotlib, Gymnasium</li>
+      </ul>
+      <h3>📬 Contact & Current Focus</h3>
+      <p>Currently immersed in Reinforcement Learning and IsaacLab, exploring a new AI concept every day.</p>
+      <p class="contact-links">
+        <a href="mailto:b23me1013@iitj.ac.in">Email</a>
+        <a href="https://www.linkedin.com/in/ayaan-choudhury/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/ayaancdry" target="_blank">GitHub</a>
+      </p>
+    </div>
+    <!-- Background Section -->
+    <div id="background" class="section">
+      <h1>Research Experience</h1>
+      <section class="experience">
+        <h3>School of Artificial Intelligence and Data Science</h3>
+        <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(Ongoing)</span></p>
+        <p class="role"><em>Undergraduate Researcher (Supervisor: <a href="https://bhivraj.wixsite.com/about" target="_blank">🔗 Prof Bhivraj Suthar</a>)</em></p>
+        <p>Developing Agribot, an autonomous agricultural robot for precision watering by integrating hardware design, software development, and computer vision for soil moisture detection, navigation, and control. Simulating performance and workflows in IsaacLab.</p>
+        <ul class="responsibilities">
+          <li>Designing chassis selection and evaluating kits such as <a href="https://www.robotshop.com/wild-thumper-6wd-rc-robot.html" target="_blank">Wild Thumper 6WD chassis</a> and <a href="https://www.pololu.com/product/2497" target="_blank">Pololu 6WD chassis</a>.</li>
+          <li>Designing mechanical structure: 30×60 cm base, water tank integration, and gripper arm mounting.</li>
+          <li>Implementing navigation using differential drive control and ROS2-based SLAM/waypoint planning.</li>
+          <li>Developing computer vision pipelines in OpenCV and TensorFlow for pot detection and soil dryness classification.</li>
+          <li>Creating control software in ROS2 and Python to orchestrate perception, planning, and actuation.</li>
+          <li>Simulating robot behaviors and validating algorithms in IsaacLab.</li>
+        </ul>
+      </section>
+      <section class="experience">
+        <h3>Department of Mechanical Engineering</h3>
+        <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(Ongoing)</span></p>
+        <p class="role"><em>Undergraduate Researcher (Supervisor: <a href="https://sites.google.com/view/ribyabrahamboby/home" target="_blank">🔗 Prof Riby Abraham Boby</a>)</em></p>
+        <p>Developing an adaptive peg-in-hole assembly framework using Learning from Demonstration and Reinforcement Learning techniques, focusing on robust and efficient insertion under variable geometries.</p>
+        <ul class="responsibilities">
+          <li>Integrating force-vision sensing in PyBullet simulations to learn motion primitives, ensuring sub-millimeter insertion accuracy across diverse shapes.</li>
+          <li>Incorporating geometry-based adaptation strategies to handle varied peg and hole configurations with minimal reprogramming.</li>
+          <li>Combining human demonstrations with online RL updates to optimize contact transitions, reducing cycle times and enhancing adaptation to uncertainties.</li>
+        </ul>
+      </section>
+      <h1>Industrial Experience</h1>
+      <section class="experience">
+        <h3>Kites AI</h3>
+        <p class="location">Gurgaon, Haryana <span class="dates">(May 2024 – June 2024)</span></p>
+        <p class="role"><em>Intern</em></p>
+        <ul class="responsibilities">
+          <li>Developed and implemented OCR solutions using OpenCV, Tesseract, Detectron2, PaddleOCR, and LayoutParser for processing health and medical invoices in collaboration with IIT Delhi and AIIMS, achieving 91.7% accuracy.</li>
+          <li>Enhanced Lipikaar, an OCR library developed by IIT Delhi for indigenous languages, by fixing bugs and improving character recognition accuracy by 20% and expanding language processing capabilities.</li>
+        </ul>
+      </section>
+      <h1>Education</h1>
+      <section class="experience">
+        <h3>Indian Institute of Technology Jodhpur</h3>
+        <p class="location">Jodhpur, Rajasthan <span class="dates">(2023 – 2027)</span></p>
+        <p class="role">Bachelor of Technology in Mechanical Engineering (CGPA: 8.86)</p>
+      </section>
+    </div>
+    <!-- Projects Section -->
+    <div id="projects" class="section">
+      <h1>Projects</h1>
+      <section class="project">
+        <h3>Smart Search</h3>
+        <p>Smart Search is a lightweight, responsive autocomplete system using Trie and Suffix Trie data structures, featuring a C++ backend and HTML/CSS/JS frontend for fast, real-time suggestions.</p>
+        <p><a href="https://github.com/ayaancdry/smartsearch" target="_blank">🔗 GitHub</a></p>
+      </section>
+      <section class="project">
+        <h3>Heart Attack Analysis & Prediction</h3>
+        <p>Builds an ML model to predict heart attack risk from health indicators, with data preprocessing, exploratory analysis, and evaluation of classification algorithms.</p>
+        <p><a href="https://github.com/ayaancdry/Heart-Attack-Analysis-Prediction" target="_blank">🔗 GitHub</a></p>
+      </section>
+      <section class="project">
+        <h3>DemocrEase</h3>
+        <p>A sophisticated voting system designed to enhance the efficiency and fairness of large-scale elections, implemented in C with client-server architecture and bar graph visualization.</p>
+        <p><a href="https://github.com/ayaancdry/DemocrEase" target="_blank">🔗 GitHub</a></p>
+      </section>
+      <section class="project">
+        <h3>Deep RL Implementations</h3>
+        <p>A collection of Deep Reinforcement Learning examples in Python, demonstrating algorithms like DQN, policy gradients, and actor-critic on environments such as Flappy Bird.</p>
+        <p><a href="https://github.com/ayaancdry/deep-RL-implementations" target="_blank">🔗 GitHub</a></p>
+      </section>
+      <section class="project">
+        <h3>Machine Learning Starters</h3>
+        <p>Provides from-scratch implementations of foundational ML models and applications, covering topics like decision trees, SVMs, nearest neighbors, and dimensionality reduction.</p>
+        <p><a href="https://github.com/ayaancdry/machinelearning-starters" target="_blank">🔗 GitHub</a></p>
+      </section>
+      <section class="project">
+        <h3>DSA Implementations</h3>
+        <p>Features implementations of core data structures and algorithms in C and C++, including trees, graphs, dynamic programming, linked lists, and more.</p>
+        <p><a href="https://github.com/ayaancdry/dsa_implementations" target="_blank">🔗 GitHub</a></p>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
