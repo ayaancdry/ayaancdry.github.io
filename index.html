@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ayaan Choudhury - Personal Website</title>
-  <!-- Google Font: Lekton -->
   <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Lekton', Arial, sans-serif; margin: 0; display: flex; }
@@ -27,7 +26,6 @@
     @media (max-width: 768px) { #sidebar { transform: translateX(-100%); width: 60%; } #sidebar.show { transform: translateX(0); } #menu-button { display: block; } }
   </style>
   <script>
-    // Navigation functions must be defined before usage
     function showSection(id) {
       document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
       document.getElementById(id).classList.add('active');
@@ -49,14 +47,12 @@
       }
     }
     window.addEventListener('resize', adjustContentMargin);
-    // Ensure initial layout
     document.addEventListener('DOMContentLoaded', adjustContentMargin);
   </script>
 </head>
 <body>
   <button id="menu-button" onclick="toggleSidebar()">☰ Menu</button>
   <div id="sidebar">
-    <!-- Update the src below to your profile photo path -->
     <img id="profile-picture" src="images/profile2.jpeg" alt="Ayaan Choudhury">
     <h2>Ayaan Choudhury</h2>
     <a href="#about" onclick="showSection('about'); closeSidebar();">About Me</a>
@@ -64,19 +60,18 @@
     <a href="#projects" onclick="showSection('projects'); closeSidebar();">Projects</a>
   </div>
   <div id="content">
-    <!-- About Me Section -->
     <div id="about" class="section active">
       <h1>About Me</h1>
       <p>Hello! I'm <strong>Ayaan Choudhury</strong>, a pre-final-year Mechanical Engineering student at the Indian Institute of Technology Jodhpur. I conduct research in AI/ML with a focus on computer vision and robotics, emphasizing machine vision and shared autonomy techniques.</p>
       <h3>🔧 Core Skills</h3>
       <ul>
         <li>🖥️ <strong>Programming Languages:</strong> C, C++, Python</li>
-        <li>⚙️ <strong>Simulation & CAD:</strong> SolidWorks, PyBullet</li>
+        <li>⚙️ <strong>Simulation & CAD:</strong> Fusion 360, PyBullet</li>
         <li>🤖 <strong>Machine Learning & AI:</strong> Algorithms, Model Optimization</li>
         <li>🎯 <strong>Reinforcement Learning:</strong> Q-Learning, DQN, Policy Gradients</li>
         <li>🧠 <strong>Deep Learning:</strong> MLPs, CNNs, RNNs, Attention, Transformers, Autoencoders, GANs, Diffusion Models</li>
         <li>📸 <strong>Computer Vision:</strong> OpenCV, YOLO, detectron2, Tesseract, PaddleOCR, EasyOCR, LayoutParser</li>
-        <li>📚 <strong>Libraries & Frameworks:</strong> PyTorch, TensorFlow, NumPy, Pandas, Matplotlib, Gymnasium</li>
+        <li>📚 <strong>Libraries & Frameworks:</strong> PyTorch, NumPy, Pandas, Matplotlib, Gymnasium</li>
       </ul>
       <h3>📬 Contact & Current Focus</h3>
       <p>Currently immersed in Reinforcement Learning and IsaacLab, exploring a new AI concept every day.</p>
@@ -86,7 +81,6 @@
         <a href="https://github.com/ayaancdry" target="_blank">GitHub</a>
       </p>
     </div>
-    <!-- Background Section -->
     <div id="background" class="section">
       <h1>Research Experience</h1>
       <section class="experience">
@@ -95,8 +89,7 @@
         <p class="role"><em>Undergraduate Researcher (Supervisor: <a href="https://bhivraj.wixsite.com/about" target="_blank">🔗 Prof Bhivraj Suthar</a>)</em></p>
         <p>Developing Agribot, an autonomous agricultural robot for precision watering by integrating hardware design, software development, and computer vision for soil moisture detection, navigation, and control. Simulating performance and workflows in IsaacLab.</p>
         <ul class="responsibilities">
-          <li>Designing chassis selection and evaluating kits such as <a href="https://www.robotshop.com/wild-thumper-6wd-rc-robot.html" target="_blank">Wild Thumper 6WD chassis</a> and <a href="https://www.pololu.com/product/2497" target="_blank">Pololu 6WD chassis</a>.</li>
-          <li>Designing mechanical structure: 30×60 cm base, water tank integration, and gripper arm mounting.</li>
+          <li>Designing mechanical structure: base, water tank integration, and gripper arm mounting.</li>
           <li>Implementing navigation using differential drive control and ROS2-based SLAM/waypoint planning.</li>
           <li>Developing computer vision pipelines in OpenCV and TensorFlow for pot detection and soil dryness classification.</li>
           <li>Creating control software in ROS2 and Python to orchestrate perception, planning, and actuation.</li>
@@ -130,8 +123,12 @@
         <p class="location">Jodhpur, Rajasthan <span class="dates">(2023 – 2027)</span></p>
         <p class="role">Bachelor of Technology in Mechanical Engineering (CGPA: 8.86)</p>
       </section>
+      <section class="experience">
+        <h3>Delhi Public School Dwarka</h3>
+        <p class="location">Dwarka, New Delhi <span class="dates">(2008 – 2023)</span></p>
+        <p class="role">High School Diploma (AISSCE: 95.6)</p>
+      </section>
     </div>
-    <!-- Projects Section -->
     <div id="projects" class="section">
       <h1>Projects</h1>
       <section class="project">
