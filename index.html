@@ -6,164 +6,614 @@
   <title>Ayaan Choudhury - Personal Website</title>
   <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Lekton', Arial, sans-serif; margin: 0; display: flex; }
-    #sidebar { width: 20%; background-color: #333; color: white; padding: 1%; display: flex; flex-direction: column; align-items: flex-start; white-space: nowrap; position: fixed; height: 100vh; overflow-y: auto; transition: transform 0.3s ease-in-out; }
-    #profile-picture { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 1em; }
-    #sidebar h2 { margin: 0 0 1em 0; }
-    #sidebar a { color: white !important; text-decoration: none; padding: 2% 5%; display: inline-block; }
-    #sidebar a:hover { background-color: #575757; }
-    #content { flex-grow: 1; display: flex; flex-direction: column; min-height: 100vh; margin-left: 25%; margin-right: 10%; padding: 2em 0; transition: margin-left 0.3s ease-in-out; }
-    .section { display: none; flex-direction: column; padding-top: 1em; }
-    .active { display: block; }
-    a { color: #0066cc; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .contact-links a { margin-right: 1em; }
-    .experience h3 { margin: 0; }
-    .location, .dates, .role { margin: 0.2em 0; }
-    .responsibilities { list-style-type: disc; padding-left: 1.2em; }
-    .project { margin-bottom: 2em; }
-    #menu-button { display: none; background-color: #333; color: white; border: none; padding: 10px 15px; font-size: 16px; position: fixed; top: 10px; left: 10px; cursor: pointer; }
-    @media (max-width: 768px) { #sidebar { transform: translateX(-100%); width: 60%; } #sidebar.show { transform: translateX(0); } #menu-button { display: block; } }
-  </style>
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+    :root {
+      --accent: #fbbf24; /* warm amber */
+      --accent-hover: #f59e42; /* deeper amber */
+      --text-main: #e0e0e0;
+      --section-bg: #232323;
+      --background: #181818;
     }
-    function toggleSidebar() {
-      document.getElementById('sidebar').classList.toggle('show');
-      adjustContentMargin();
+    body {
+      background: var(--background);
+      color: var(--text-main);
+      font-family: 'Lekton', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      letter-spacing: 0.01em;
     }
-    function closeSidebar() {
-      document.getElementById('sidebar').classList.remove('show');
-      adjustContentMargin();
+    .navbar {
+      width: 100vw;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background: #181818;
+      box-shadow: 0 4px 32px 0 rgba(0,0,0,0.25);
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+      animation: navFadeIn 0.8s;
     }
-    function adjustContentMargin() {
-      const content = document.getElementById('content');
-      if (window.innerWidth > 768) {
-        content.style.marginLeft = '25%';
-      } else {
-        content.style.marginLeft = document.getElementById('sidebar').classList.contains('show') ? '25%' : '10%';
+    @keyframes navFadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: none; }
+    }
+    .navbar-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.7em 2em;
+    }
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-title {
+      font-size: 1.3em;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px var(--accent-hover)22;
+    }
+    .navbar-links {
+      display: flex;
+      gap: 1.2em;
+      align-items: center;
+      transition: max-height 0.3s;
+    }
+    .nav-link {
+      color: var(--text-main);
+      background: transparent;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent) !important;
+      background: var(--section-bg);
+      box-shadow: 0 2px 8px 0 var(--accent-hover)55;
+      text-decoration: underline;
+    }
+    .navbar-toggle {
+      display: none;
+      background: var(--section-bg);
+      color: var(--accent);
+      border: none;
+      padding: 10px 15px;
+      font-size: 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-left: 1em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar-toggle:hover {
+      background: var(--accent);
+      color: var(--background);
+    }
+    main {
+      margin-top: 90px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1.5em 2em 1.5em;
+    }
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 45vh;
+      margin-bottom: 2.5em;
+      background: #232323;
+      border-radius: 22px;
+      box-shadow: 0 2px 16px 0 #00e0ff11;
+      padding: 2.5em 1.5em 2em 1.5em;
+      animation: heroFadeIn 1.2s;
+    }
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: none; }
+    }
+    .hero-profile {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      margin-bottom: 1.2em;
+      box-shadow: 0 2px 12px 0 var(--accent-hover)22;
+    }
+    .hero-name {
+      font-size: 2.2em;
+      color: var(--accent);
+      margin: 0.2em 0 0.1em 0;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-shadow: 0 2px 8px var(--accent-hover)22;
+    }
+    .hero-title {
+      font-size: 1.2em;
+      color: #b0b8c1;
+      margin-bottom: 1.2em;
+      font-weight: 500;
+    }
+    .hero-links a,
+    .contact-links a {
+      background: none;
+      color: var(--accent);
+      border: none;
+      box-shadow: none;
+      text-decoration: underline;
+      padding: 0;
+      margin-right: 1em;
+      font-weight: 500;
+      font-size: 1.05em;
+      transition: color 0.2s;
+    }
+    .hero-links a:hover,
+    .contact-links a:hover {
+      color: var(--accent-hover);
+      background: none;
+      box-shadow: none;
+    }
+    .section {
+      background: #232323;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px 0 #00e0ff11;
+      padding: 2em 2.5em;
+      margin-bottom: 2em;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .section.appear {
+      opacity: 1;
+      transform: none;
+    }
+    .project, .blog-card {
+      margin-bottom: 2em;
+      background: #181818;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px 0 #00e0ff11;
+      border: 1px solid #232323;
+      padding: 1.2em 1.5em;
+      transition: box-shadow 0.2s, background 0.2s;
+    }
+    .project:hover, .blog-card:hover {
+      background: #232323;
+      box-shadow: 0 4px 16px 0 #00e0ff33;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: var(--accent-hover);
+    }
+    .project a {
+      color: var(--accent);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .project a:hover {
+      color: var(--accent-hover);
+    }
+    .role a {
+      color: var(--accent);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .role a:hover {
+      color: var(--accent-hover);
+    }
+    .supervisor-link {
+      display: inline-flex;
+      align-items: center;
+    }
+    .supervisor-link .chain-icon {
+      margin-right: 0.2em;
+      font-size: 1em;
+      color: var(--accent);
+      text-decoration: none !important;
+      vertical-align: middle;
+    }
+    .supervisor-link a {
+      color: var(--accent);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .supervisor-link a:hover {
+      color: var(--accent-hover);
+    }
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2em;
+      justify-content: flex-start;
+    }
+    .blog-card {
+      background: linear-gradient(120deg, #232323 80%, var(--accent)11 100%);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px 0 #0006;
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.22s, background 0.3s;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.5em;
+      position: relative;
+      border: 1.5px solid var(--accent);
+      animation: blogPopIn 0.8s cubic-bezier(.4,2,.6,1);
+    }
+    @keyframes blogPopIn {
+      from { opacity: 0; transform: translateY(40px) scale(0.98); }
+      to { opacity: 1; transform: none; }
+    }
+    .blog-card:hover {
+      box-shadow: 0 8px 32px 0 var(--accent-hover)44;
+      transform: translateY(-8px) scale(1.025);
+      background: linear-gradient(120deg, #232323 60%, var(--accent)22 100%);
+    }
+    .blog-link {
+      display: flex;
+      flex-direction: row;
+      text-decoration: none;
+      color: inherit;
+      height: 100%;
+      align-items: stretch;
+    }
+    .blog-image {
+      width: 220px;
+      min-width: 180px;
+      height: 180px;
+      object-fit: cover;
+      background: #232323;
+      border-right: 1.5px solid var(--accent);
+      border-bottom: none;
+      border-radius: 0;
+      transition: filter 0.2s;
+      filter: brightness(0.98) contrast(1.08);
+    }
+    .blog-card:hover .blog-image {
+      filter: brightness(1.05) contrast(1.12) saturate(1.1);
+    }
+    .blog-content {
+      padding: 1.2em 1.5em 1.2em 1.5em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+    }
+    .blog-title {
+      color: var(--accent);
+      font-size: 1.18em;
+      margin: 0 0 0.7em 0;
+      font-weight: 700;
+      line-height: 1.3;
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .blog-link:hover .blog-title {
+      color: var(--accent-hover);
+    }
+    .blog-tags {
+      display: flex;
+      gap: 0.6em;
+      margin-bottom: 0.7em;
+      flex-wrap: wrap;
+    }
+    .tag {
+      display: inline-block;
+      padding: 0.32em 1.1em 0.32em 1.1em;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent) 60%, var(--accent-hover) 100%);
+      color: #181818;
+      font-size: 0.98em;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      box-shadow: 0 2px 8px 0 var(--accent-hover)22;
+      border: none;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      margin-bottom: 0.2em;
+      user-select: none;
+      outline: none;
+      position: relative;
+    }
+    .tag:hover {
+      background: linear-gradient(90deg, var(--accent-hover) 60%, var(--accent) 100%);
+      color: #232323;
+      box-shadow: 0 4px 16px 0 var(--accent-hover)44;
+    }
+    .blog-desc {
+      color: #e0e0e0;
+      font-size: 1.01em;
+      margin: 0.5em 0 0 0;
+      opacity: 0.92;
+      line-height: 1.5;
+    }
+    @media (max-width: 900px) {
+      .navbar-content {
+        padding: 0.7em 0.7em;
+      }
+      main {
+        padding: 0 0.5em 2em 0.5em;
+      }
+      .section {
+        padding: 1.2em 1em;
+      }
+      .blog-list {
+        gap: 1.2em;
+      }
+      .blog-link {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .blog-image {
+        width: 100%;
+        min-width: 0;
+        height: 180px;
+        border-right: none;
+        border-bottom: 1.5px solid var(--accent);
+        border-radius: 0;
+      }
+      .blog-content {
+        padding: 1.2em 1em 1.2em 1em;
       }
     }
-    window.addEventListener('resize', adjustContentMargin);
-    document.addEventListener('DOMContentLoaded', adjustContentMargin);
-  </script>
+    @media (max-width: 768px) {
+      .navbar-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5em;
+      }
+      .navbar-links {
+        flex-direction: column;
+        gap: 0.5em;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: rgba(30, 34, 44, 0.98);
+        border-radius: 0 0 18px 18px;
+        box-shadow: 0 4px 32px 0 rgba(0,0,0,0.15);
+        transition: max-height 0.3s;
+      }
+      .navbar-links.show {
+        max-height: 400px;
+        padding-bottom: 0.7em;
+      }
+      .navbar-toggle {
+        display: block;
+      }
+      .hero-section {
+        padding: 1.5em 0.5em 1em 0.5em;
+      }
+      .section {
+        padding: 1.2em 0.5em;
+      }
+    }
+    .chain-icon {
+      margin-right: 0.3em;
+      font-size: 1em;
+      color: var(--accent);
+      text-decoration: none !important;
+      vertical-align: middle;
+    }
+    .github-link {
+      color: var(--accent);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .github-link:hover {
+      color: var(--accent-hover);
+    }
+  </style>
 </head>
 <body>
-  <button id="menu-button" onclick="toggleSidebar()">☰ Menu</button>
-  <div id="sidebar">
-    <img id="profile-picture" src="images/profile2.jpeg" alt="Ayaan Choudhury">
-    <h2>Ayaan Choudhury</h2>
-    <a href="#about" onclick="showSection('about'); closeSidebar();">About Me</a>
-    <a href="#background" onclick="showSection('background'); closeSidebar();">Background</a>
-    <a href="#projects" onclick="showSection('projects'); closeSidebar();">Projects</a>
-    <a href="#tasklist" onclick="showSection('tasklist'); closeSidebar();">Tasklist</a>
-  </div>
-  <div id="content">
-    <div id="about" class="section active">
-      <h1>About Me</h1>
-      <p>Hello! I'm <strong>Ayaan Choudhury</strong>, a pre-final-year Mechanical Engineering student at the Indian Institute of Technology Jodhpur. I conduct research in AI/ML with a focus on computer vision and robotics, emphasizing machine vision and shared autonomy techniques.</p>
-      <h3>🔧 Core Skills</h3>
-      <ul>
-        <li>🖥️ <strong>Programming Languages:</strong> C, C++, Python</li>
-        <li>⚙️ <strong>Simulation & CAD:</strong> Fusion 360, PyBullet</li>
-        <li>🤖 <strong>Machine Learning & AI:</strong> Algorithms, Model Optimization</li>
-        <li>🎯 <strong>Reinforcement Learning:</strong> Q-Learning, DQN, Policy Gradients</li>
-        <li>🧠 <strong>Deep Learning:</strong> MLPs, CNNs, RNNs, Attention, Transformers, Autoencoders, GANs, Diffusion Models</li>
-        <li>📸 <strong>Computer Vision:</strong> OpenCV, YOLO, detectron2, Tesseract, PaddleOCR, EasyOCR, LayoutParser</li>
-        <li>📚 <strong>Libraries & Frameworks:</strong> PyTorch, NumPy, Pandas, Matplotlib, Gymnasium</li>
-      </ul>
-      <h3>📬 Contact & Current Focus</h3>
-      <p>Currently immersed in Reinforcement Learning and IsaacLab, exploring a new AI concept every day.</p>
-      <p class="contact-links">
-        <a href="mailto:b23me1013@iitj.ac.in">Email</a>
-        <a href="https://www.linkedin.com/in/ayaan-choudhury/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/ayaancdry" target="_blank">GitHub</a>
-      </p>
-    </div>
-    <div id="background" class="section">
-      <h1>Research Experience</h1>
-      <section class="experience">
-        <h3>School of Artificial Intelligence and Data Science</h3>
-        <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(Ongoing)</span></p>
-        <p class="role"><em>Undergraduate Researcher (Supervisor: <a href="https://bhivraj.wixsite.com/about" target="_blank">🔗 Prof Bhivraj Suthar</a>)</em></p>
-        <p>Developing Agribot, an autonomous agricultural robot for precision watering by integrating hardware design, software development, and computer vision for soil moisture detection, navigation, and control. Simulating performance and workflows in IsaacLab.</p>
-        <ul class="responsibilities">
-          <li>Designing mechanical structure: base, water tank integration, and gripper arm mounting.</li>
-          <li>Implementing navigation using differential drive control and ROS2-based SLAM/waypoint planning.</li>
-          <li>Developing computer vision pipelines in OpenCV and TensorFlow for pot detection and soil dryness classification.</li>
-          <li>Creating control software in ROS2 and Python to orchestrate perception, planning, and actuation.</li>
-          <li>Simulating robot behaviors and validating algorithms in IsaacLab.</li>
+    <header class="navbar">
+      <div class="navbar-content">
+        <div class="navbar-brand">
+          <span class="navbar-title">Ayaan Choudhury</span>
+        </div>
+        <nav class="navbar-links">
+          <a href="#hero" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#background" class="nav-link">Background</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#blogs" class="nav-link">Blogs</a>
+          <a href="#tasklist" class="nav-link">Tasklist</a>
+        </nav>
+        <button class="navbar-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </header>
+    <main>
+      <section id="hero" class="hero-section fade-in">
+        <img src="images/profile2.jpeg" alt="Ayaan Choudhury" class="hero-profile">
+        <h1 class="hero-name">Ayaan Choudhury</h1>
+        <p class="hero-title">Pre-Final Year @ IIT Jodhpur</p>
+        <div class="hero-links">
+          <a href="mailto:b23me1013@iitj.ac.in">Email</a>
+          <a href="https://www.linkedin.com/in/ayaan-choudhury/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/ayaancdry" target="_blank">GitHub</a>
+        </div>
+      </section>
+      <section id="about" class="section fade-in">
+        <h1>About Me</h1>
+        <p>Hello! I'm <strong>Ayaan Choudhury</strong>, a pre-final-year Mechanical Engineering student at the Indian Institute of Technology Jodhpur. I conduct research in AI/ML with a focus on computer vision and robotics, emphasizing machine vision and shared autonomy techniques.</p>
+        <h3>Core Skills</h3>
+        <ul>
+          <li><strong><em>Programming Languages:</em></strong> C, C++, Python</li>
+          <li><strong><em>Simulation and Robotics:</em></strong> IsaacLab, Gazebo, PyBullet, ROS 2</li>
+          <li><strong><em>Perception and Navigation:</em></strong> SLAM, LiDAR Processing, Sensor Fusion, Path Planning</li>
+          <li><strong><em>Machine Learning and AI:</em></strong> Supervised and Unsupervised Learning, Model Optimization</li>
+          <li><strong><em>Reinforcement Learning:</em></strong> Q-Learning, Deep Q-Networks, Policy Gradients</li>
+          <li><strong><em>Deep Learning:</em></strong> MLPs, CNNs, RNNs, GANs, Diffusion Models</li>
+          <li><strong><em>Computer Vision:</em></strong> OpenCV, Object Detection (YOLO, detectron2), OCR (Tesseract, PaddleOCR)</li>
+          <li><strong><em>Libraries and Frameworks:</em></strong> PyTorch, TensorFlow, NumPy, Pandas, Matplotlib, Gymnasium</li>
+          <li><strong><em>Tools and Platforms:</em></strong> Linux, Docker, NVIDIA CUDA, WSL 2, Git, Jupyter</li>
         </ul>
+        <h3>Contact & Current Focus</h3>
+        <p>Currently immersed in Reinforcement Learning and IsaacLab, exploring a new AI concept every day.</p>
+        <p class="contact-links">
+          <a href="mailto:b23me1013@iitj.ac.in">Email</a>
+          <a href="https://www.linkedin.com/in/ayaan-choudhury/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/ayaancdry" target="_blank">GitHub</a>
+        </p>
       </section>
-      <section class="experience">
-        <h3>Department of Mechanical Engineering</h3>
-        <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(Ongoing)</span></p>
-        <p class="role"><em>Undergraduate Researcher (Supervisor: <a href="https://sites.google.com/view/ribyabrahamboby/home" target="_blank">🔗 Prof Riby Abraham Boby</a>)</em></p>
-        <p>Developing an adaptive peg-in-hole assembly framework using Learning from Demonstration and Reinforcement Learning techniques, focusing on robust and efficient insertion under variable geometries.</p>
-        <ul class="responsibilities">
-          <li>Integrating force-vision sensing in PyBullet simulations to learn motion primitives, ensuring sub-millimeter insertion accuracy across diverse shapes.</li>
-          <li>Incorporating geometry-based adaptation strategies to handle varied peg and hole configurations with minimal reprogramming.</li>
-          <li>Combining human demonstrations with online RL updates to optimize contact transitions, reducing cycle times and enhancing adaptation to uncertainties.</li>
-        </ul>
+      <section id="background" class="section fade-in">
+        <h1>Research Experience</h1>
+        <section class="experience">
+          <h3>School of Artificial Intelligence and Data Science</h3>
+          <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(Ongoing)</span></p>
+          <p class="role"><em>Undergraduate Researcher (Supervisor: <span class="supervisor-link"><span class="chain-icon">🔗</span><a href="https://bhivraj.wixsite.com/about" target="_blank">Prof Bhivraj Suthar</a></span>)</em></p>
+          <p>Developing Agribot, an autonomous agricultural robot for precision watering by integrating hardware design, software development, and computer vision for soil moisture detection, navigation, and control. Simulating performance and workflows in IsaacLab.</p>
+          <ul class="responsibilities">
+            <li>Designing mechanical structure: base, water tank integration, and gripper arm mounting.</li>
+            <li>Implementing navigation using differential drive control and ROS2-based SLAM/waypoint planning.</li>
+            <li>Developing computer vision pipelines in OpenCV and TensorFlow for pot detection and soil dryness classification.</li>
+            <li>Creating control software in ROS2 and Python to orchestrate perception, planning, and actuation.</li>
+            <li>Simulating robot behaviors and validating algorithms in IsaacLab.</li>
+          </ul>
+        </section>
+        <section class="experience">
+          <h3>Department of Mechanical Engineering</h3>
+          <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(Ongoing)</span></p>
+          <p class="role"><em>Undergraduate Researcher (Supervisor: <span class="supervisor-link"><span class="chain-icon">🔗</span><a href="https://sites.google.com/view/ribyabrahamboby/home" target="_blank">Prof Riby Abraham Boby</a></span>)</em></p>
+          <p>Developing an adaptive peg-in-hole assembly framework using Learning from Demonstration and Reinforcement Learning techniques, focusing on robust and efficient insertion under variable geometries.</p>
+          <ul class="responsibilities">
+            <li>Integrating force-vision sensing in PyBullet simulations to learn motion primitives, ensuring sub-millimeter insertion accuracy across diverse shapes.</li>
+            <li>Incorporating geometry-based adaptation strategies to handle varied peg and hole configurations with minimal reprogramming.</li>
+            <li>Combining human demonstrations with online RL updates to optimize contact transitions, reducing cycle times and enhancing adaptation to uncertainties.</li>
+          </ul>
+        </section>
+        <h1>Industrial Experience</h1>
+        <section class="experience">
+          <h3>Kites AI</h3>
+          <p class="location">Gurgaon, Haryana <span class="dates">(May 2024 – June 2024)</span></p>
+          <p class="role"><em>Intern</em></p>
+          <ul class="responsibilities">
+            <li>Developed and implemented OCR solutions using OpenCV, Tesseract, Detectron2, PaddleOCR, and LayoutParser for processing health and medical invoices in collaboration with IIT Delhi and AIIMS, achieving 91.7% accuracy.</li>
+            <li>Enhanced Lipikaar, an OCR library developed by IIT Delhi for indigenous languages, by fixing bugs and improving character recognition accuracy by 20% and expanding language processing capabilities.</li>
+          </ul>
+        </section>
+        <h1>Education</h1>
+        <section class="experience">
+          <h3>Indian Institute of Technology Jodhpur</h3>
+          <p class="location">Jodhpur, Rajasthan <span class="dates">(2023 – 2027)</span></p>
+          <p class="role"><em>Bachelor of Technology in Mechanical Engineering (CGPA: 8.86)</em></p>
+        </section>
+        <br>
+        <section class="experience">
+          <h3>Delhi Public School Dwarka</h3>
+          <p class="location">Dwarka, New Delhi <span class="dates">(2008 – 2023)</span></p>
+          <p class="role"><em>High School Diploma (AISSCE: 95.6)</em></p>
+        </section>
       </section>
-      <h1>Industrial Experience</h1>
-      <section class="experience">
-        <h3>Kites AI</h3>
-        <p class="location">Gurgaon, Haryana <span class="dates">(May 2024 – June 2024)</span></p>
-        <p class="role"><em>Intern</em></p>
-        <ul class="responsibilities">
-          <li>Developed and implemented OCR solutions using OpenCV, Tesseract, Detectron2, PaddleOCR, and LayoutParser for processing health and medical invoices in collaboration with IIT Delhi and AIIMS, achieving 91.7% accuracy.</li>
-          <li>Enhanced Lipikaar, an OCR library developed by IIT Delhi for indigenous languages, by fixing bugs and improving character recognition accuracy by 20% and expanding language processing capabilities.</li>
-        </ul>
+      <section id="projects" class="section fade-in">
+        <h1>Projects</h1>
+        <section class="project">
+          <h3>Smart Search</h3>
+          <p>Smart Search is a lightweight, responsive autocomplete system using Trie and Suffix Trie data structures, featuring a C++ backend and HTML/CSS/JS frontend for fast, real-time suggestions.</p>
+          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/smartsearch" target="_blank">GitHub</a></p>
+        </section>
+        <section class="project">
+          <h3>Heart Attack Analysis & Prediction</h3>
+          <p>Builds an ML model to predict heart attack risk from health indicators, with data preprocessing, exploratory analysis, and evaluation of classification algorithms.</p>
+          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/Heart-Attack-Analysis-Prediction" target="_blank">GitHub</a></p>
+        </section>
+        <section class="project">
+          <h3>DemocrEase</h3>
+          <p>A sophisticated voting system designed to enhance the efficiency and fairness of large-scale elections, implemented in C with client-server architecture and bar graph visualization.</p>
+          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/DemocrEase" target="_blank">GitHub</a></p>
+        </section>
+        <section class="project">
+          <h3>Deep RL Implementations</h3>
+          <p>A collection of Deep Reinforcement Learning examples in Python, demonstrating algorithms like DQN, policy gradients, and actor-critic on environments such as Flappy Bird.</p>
+          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/deep-RL-implementations" target="_blank">GitHub</a></p>
+        </section>
+        <section class="project">
+          <h3>Machine Learning Starters</h3>
+          <p>Provides from-scratch implementations of foundational ML models and applications, covering topics like decision trees, SVMs, nearest neighbors, and dimensionality reduction.</p>
+          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/machinelearning-starters" target="_blank">GitHub</a></p>
+        </section>
+        <section class="project">
+          <h3>DSA Implementations</h3>
+          <p>Features implementations of core data structures and algorithms in C and C++, including trees, graphs, dynamic programming, linked lists, and more.</p>
+          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/dsa_implementations" target="_blank">GitHub</a></p>
+        </section>
       </section>
-      <h1>Education</h1>
-      <section class="experience">
-        <h3>Indian Institute of Technology Jodhpur</h3>
-        <p class="location">Jodhpur, Rajasthan <span class="dates">(2023 – 2027)</span></p>
-        <p class="role">Bachelor of Technology in Mechanical Engineering (CGPA: 8.86)</p>
+      <section id="blogs" class="section fade-in">
+        <h1>Blogs</h1>
+        <div class="blog-list column-layout">
+          <div class="blog-card">
+            <a href="https://medium.com/@ayaan.cdry/tutorial-how-to-spawn-a-robot-in-a-custom-gazebo-world-using-ros2-humble-e4a2f3c6e95b" target="_blank" class="blog-link">
+              <img src="images/blog1.webp" alt="How to Spawn a Robot in a Custom Gazebo World using ROS2 Humble" class="blog-image">
+              <div class="blog-content">
+                <h3 class="blog-title">Tutorial: How to Spawn a Robot in a Custom Gazebo World using ROS2 Humble</h3>
+                <div class="blog-tags">
+                  <span class="tag tag-ros2">ros2</span>
+                  <span class="tag tag-gazebo">gazebo</span>
+                  <span class="tag tag-simulation">simulation</span>
+                </div>
+                <p class="blog-desc">A step-by-step guide to spawning robots in custom Gazebo worlds using ROS2 Humble, with practical tips and visuals for robotics simulation enthusiasts.</p>
+              </div>
+            </a>
+          </div>
+          <div class="blog-card">
+            <a href="https://medium.com/@ayaan.cdry/step-by-step-upgrading-ubuntu-20-04-to-22-04-on-a-dual-boot-system-c19828b209a4" target="_blank" class="blog-link">
+              <img src="images/blog2.png" alt="Step-by-step Upgrading Ubuntu 20.04 to 22.04 on a Dual Boot System" class="blog-image">
+              <div class="blog-content">
+                <h3 class="blog-title">Step-by-step Upgrading Ubuntu 20.04 to 22.04 on a Dual Boot System</h3>
+                <div class="blog-tags">
+                  <span class="tag tag-ubuntu">ubuntu</span>
+                  <span class="tag tag-jammy">jammy</span>
+                  <span class="tag tag-dualboot">dual-boot</span>
+                </div>
+                <p class="blog-desc">A complete walkthrough for safely upgrading Ubuntu on a dual-boot system, with troubleshooting tips and visuals for a smooth transition to Jammy Jellyfish.</p>
+              </div>
+            </a>
+          </div>
+        </div>
       </section>
-      <br>
-      <section class="experience">
-        <h3>Delhi Public School Dwarka</h3>
-        <p class="location">Dwarka, New Delhi <span class="dates">(2008 – 2023)</span></p>
-        <p class="role">High School Diploma (AISSCE: 95.6)</p>
+      <section id="tasklist" class="section fade-in">
+        <h1>Tasklist</h1>
+        <p>Check out my <a href="https://github.com/ayaancdry/Tasklist" target="_blank">GitHub repository</a> for the latest tasklist and projects I'm working on.</p>
       </section>
-    </div>
-    <div id="projects" class="section">
-      <h1>Projects</h1>
-      <section class="project">
-        <h3>Smart Search</h3>
-        <p>Smart Search is a lightweight, responsive autocomplete system using Trie and Suffix Trie data structures, featuring a C++ backend and HTML/CSS/JS frontend for fast, real-time suggestions.</p>
-        <p><a href="https://github.com/ayaancdry/smartsearch" target="_blank">🔗 GitHub</a></p>
-      </section>
-      <section class="project">
-        <h3>Heart Attack Analysis & Prediction</h3>
-        <p>Builds an ML model to predict heart attack risk from health indicators, with data preprocessing, exploratory analysis, and evaluation of classification algorithms.</p>
-        <p><a href="https://github.com/ayaancdry/Heart-Attack-Analysis-Prediction" target="_blank">🔗 GitHub</a></p>
-      </section>
-      <section class="project">
-        <h3>DemocrEase</h3>
-        <p>A sophisticated voting system designed to enhance the efficiency and fairness of large-scale elections, implemented in C with client-server architecture and bar graph visualization.</p>
-        <p><a href="https://github.com/ayaancdry/DemocrEase" target="_blank">🔗 GitHub</a></p>
-      </section>
-      <section class="project">
-        <h3>Deep RL Implementations</h3>
-        <p>A collection of Deep Reinforcement Learning examples in Python, demonstrating algorithms like DQN, policy gradients, and actor-critic on environments such as Flappy Bird.</p>
-        <p><a href="https://github.com/ayaancdry/deep-RL-implementations" target="_blank">🔗 GitHub</a></p>
-      </section>
-      <section class="project">
-        <h3>Machine Learning Starters</h3>
-        <p>Provides from-scratch implementations of foundational ML models and applications, covering topics like decision trees, SVMs, nearest neighbors, and dimensionality reduction.</p>
-        <p><a href="https://github.com/ayaancdry/machinelearning-starters" target="_blank">🔗 GitHub</a></p>
-      </section>
-      <section class="project">
-        <h3>DSA Implementations</h3>
-        <p>Features implementations of core data structures and algorithms in C and C++, including trees, graphs, dynamic programming, linked lists, and more.</p>
-        <p><a href="https://github.com/ayaancdry/dsa_implementations" target="_blank">🔗 GitHub</a></p>
-      </section>
-    </div>
-  </div>
-</body>
+    </main>
+    <script>
+      // Navbar toggle for mobile
+      const toggleBtn = document.querySelector('.navbar-toggle');
+      const navLinks = document.querySelector('.navbar-links');
+      toggleBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+      // Smooth scroll
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: 'smooth'
+            });
+            navLinks.classList.remove('show');
+          }
+        });
+      });
+      // Fade-in on scroll
+      const faders = document.querySelectorAll('.fade-in');
+      const appearOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+      faders.forEach(fader => { appearOnScroll.observe(fader); });
+    </script>
+  </body>
 </html>
