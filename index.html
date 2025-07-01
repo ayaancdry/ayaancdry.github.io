@@ -7,13 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent: #f4f4f5; 
-      --accent-hover: #f59e42; 
+      --accent: #f4f4f5; /* warm amber */
+      --accent-hover: #f59e42; /* deeper amber */
       --text-main: #e0e0e0;
       --section-bg: #232323;
       --background: #181818;
     }
-    
+    /* --- MINIMAL DARK THEME INSPIRED BY SCREENSHOT --- */
     body {
       background: #18181b;
       color: #f4f4f5;
@@ -75,7 +75,7 @@
       transform: translateY(-2px) scale(1.06);
     }
     main {
-      max-width: 600px;
+      max-width: 900px; 
       margin: 0 auto;
       padding: 0 1.5em 2em 1.5em;
       display: flex;
@@ -221,7 +221,7 @@
       opacity: 1;
       transform: none;
     }
-   
+    
     .blog-list {
       display: flex;
       flex-direction: column;
@@ -327,6 +327,66 @@
         padding: 0.4em 0.5em;
       }
     }
+    .github-markdown-card {
+      background: #232329;
+      border-radius: 12px;
+      border: 1.5px solid #35353b;
+      box-shadow: 0 2px 16px 0 #0002;
+      padding: 1.3em 1.5em;
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+      font-family: 'Lekton', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+      color: #d4d4d8;
+      font-size: 1.05em;
+      overflow-x: auto;
+    }
+    .github-markdown-card ul {
+      margin: 0 0 0 1.2em;
+      padding: 0 0 0 1.2em;
+      list-style: disc;
+    }
+    .github-markdown-card ul ul {
+      margin: 0.3em 0 0.3em 1.2em;
+      padding: 0 0 0 1.2em;
+      list-style: circle;
+      font-size: 0.97em; 
+    }
+    .github-markdown-card li {
+      margin-bottom: 0.5em;
+      line-height: 1.7;
+    }
+    .github-markdown-card a {
+      color: #58a6ff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.18s;
+    }
+    .github-markdown-card a:hover {
+      color: #a1a1aa;
+    }
+    .github-markdown-card code {
+      background: #18181b;
+      color: #fbbf24;
+      border-radius: 4px;
+      padding: 0.13em 0.4em;
+      font-size: 0.98em;
+      font-family: 'Lekton', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    }
+    .github-markdown-card strong {
+      color: #fff;
+      font-weight: 600;
+    }
+    .github-markdown-card em {
+      color: #b0b8c1;
+      font-style: italic;
+    }
+    
+    @media (max-width: 700px) {
+      .github-markdown-card {
+        padding: 1em 0.7em;
+        font-size: 0.98em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -380,7 +440,7 @@
         <section class="experience">
           <h3>School of Artificial Intelligence and Data Science</h3>
           <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(Ongoing)</span></p>
-          <p class="role"><em>Undergraduate Researcher (Supervisor: <span class="supervisor-link"><span class="chain-icon">🔗</span><a href="https://bhivraj.wixsite.com/about" target="_blank">Prof Bhivraj Suthar</a></span>)</em></p>
+          <p class="role"><em>Undergraduate Researcher (Supervisor: <span class="supervisor-link"><span class="chain-icon">🔗</span> <a href="https://bhivraj.wixsite.com/about" target="_blank">Prof Bhivraj Suthar</a></span>)</em></p>
           <p>Developing Agribot, an autonomous agricultural robot for precision watering by integrating hardware design, software development, and computer vision for soil moisture detection, navigation, and control. Simulating performance and workflows in IsaacLab.</p>
           <ul class="responsibilities">
             <li>Designing mechanical structure: base, water tank integration, and gripper arm mounting.</li>
@@ -393,7 +453,7 @@
         <section class="experience">
           <h3>Department of Mechanical Engineering</h3>
           <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(Ongoing)</span></p>
-          <p class="role"><em>Undergraduate Researcher (Supervisor: <span class="supervisor-link"><span class="chain-icon">🔗</span><a href="https://sites.google.com/view/ribyabrahamboby/home" target="_blank">Prof Riby Abraham Boby</a></span>)</em></p>
+          <p class="role"><em>Undergraduate Researcher (Supervisor: <span class="supervisor-link"><span class="chain-icon">🔗</span> <a href="https://sites.google.com/view/ribyabrahamboby/home" target="_blank">Prof Riby Abraham Boby</a></span>)</em></p>
           <p>Developing an adaptive peg-in-hole assembly framework using Learning from Demonstration and Reinforcement Learning techniques, focusing on robust and efficient insertion under variable geometries.</p>
           <ul class="responsibilities">
             <li>Integrating force-vision sensing in PyBullet simulations to learn motion primitives, ensuring sub-millimeter insertion accuracy across diverse shapes.</li>
@@ -429,32 +489,32 @@
         <section class="project">
           <h3>Smart Search</h3>
           <p>Smart Search is a lightweight, responsive autocomplete system using Trie and Suffix Trie data structures, featuring a C++ backend and HTML/CSS/JS frontend for fast, real-time suggestions.</p>
-          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/smartsearch" target="_blank">GitHub</a></p>
+          <p><span class="chain-icon">🔗</span> <a class="github-link" href="https://github.com/ayaancdry/smartsearch" target="_blank">GitHub</a></p>
         </section>
         <section class="project">
           <h3>Heart Attack Analysis & Prediction</h3>
           <p>Builds an ML model to predict heart attack risk from health indicators, with data preprocessing, exploratory analysis, and evaluation of classification algorithms.</p>
-          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/Heart-Attack-Analysis-Prediction" target="_blank">GitHub</a></p>
+          <p><span class="chain-icon">🔗</span> <a class="github-link" href="https://github.com/ayaancdry/Heart-Attack-Analysis-Prediction" target="_blank">GitHub</a></p>
         </section>
         <section class="project">
           <h3>DemocrEase</h3>
           <p>A sophisticated voting system designed to enhance the efficiency and fairness of large-scale elections, implemented in C with client-server architecture and bar graph visualization.</p>
-          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/DemocrEase" target="_blank">GitHub</a></p>
+          <p><span class="chain-icon">🔗</span> <a class="github-link" href="https://github.com/ayaancdry/DemocrEase" target="_blank">GitHub</a></p>
         </section>
         <section class="project">
           <h3>Deep RL Implementations</h3>
           <p>A collection of Deep Reinforcement Learning examples in Python, demonstrating algorithms like DQN, policy gradients, and actor-critic on environments such as Flappy Bird.</p>
-          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/deep-RL-implementations" target="_blank">GitHub</a></p>
+          <p><span class="chain-icon">🔗</span> <a class="github-link" href="https://github.com/ayaancdry/deep-RL-implementations" target="_blank">GitHub</a></p>
         </section>
         <section class="project">
           <h3>Machine Learning Starters</h3>
           <p>Provides from-scratch implementations of foundational ML models and applications, covering topics like decision trees, SVMs, nearest neighbors, and dimensionality reduction.</p>
-          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/machinelearning-starters" target="_blank">GitHub</a></p>
+          <p><span class="chain-icon">🔗</span> <a class="github-link" href="https://github.com/ayaancdry/machinelearning-starters" target="_blank">GitHub</a></p>
         </section>
         <section class="project">
           <h3>DSA Implementations</h3>
           <p>Features implementations of core data structures and algorithms in C and C++, including trees, graphs, dynamic programming, linked lists, and more.</p>
-          <p><span class="chain-icon">🔗</span><a class="github-link" href="https://github.com/ayaancdry/dsa_implementations" target="_blank">GitHub</a></p>
+          <p><span class="chain-icon">🔗</span> <a class="github-link" href="https://github.com/ayaancdry/dsa_implementations" target="_blank">GitHub</a></p>
         </section>
       </section>
       <section id="blogs" class="section fade-in">
@@ -493,10 +553,29 @@
       <section id="tasklist" class="section fade-in">
         <h1>Tasklist</h1>
         <p>Check out my <a href="https://github.com/ayaancdry/Tasklist" target="_blank">GitHub repository</a> for the latest tasklist and projects I'm working on.</p>
+        
+        <div class="github-markdown-card">
+          <ul>
+            <li>Richard Sutton's <a href="http://incompleteideas.net/book/the-book.html" target="_blank">Reinforcement Learning: An Introduction</a> 🚧 <em>2024.12.12-</em></li>
+            <li>Zhiqing Xiao's <a href="https://link.springer.com/book/10.1007/978-981-19-4933-3" target="_blank">Reinforcement Learning</a> 🚧 <em>2025.02.26-</em></li>
+            <li>Playing Atari with Deep Reinforcement Learning, 2013. Algorithm: <code>DQN</code> <strong><a href="https://github.com/tylertaewook/RLpapers/blob/main/DQN_annot.pdf" target="_blank">[paper_annot]</a> <a href="https://github.com/tylertaewook/RLpapers/blob/main/DQN.ipynb" target="_blank">[code]</a></strong> ✅</li>
+            <li>Human-level control through deep reinforcement learning, 2015. Algorithm: <code>DQN</code> <strong><a href="https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf" target="_blank">[paper]</a></strong></li>
+            <li>Multiagent Cooperation and Competition with Deep Reinforcement Learning <strong><a href="https://arxiv.org/pdf/1511.08779.pdf" target="_blank">[paper]</a></strong> ✅</li>
+            <li>Deep Recurrent Q-Learning for Partially Observable MDPs, Hausknecht and Stone, 2015. Algorithm: <code>Deep Recurrent Q-Learning(DRQN)</code> <strong><a href="https://github.com/tylertaewook/RLpapers/blob/main/DRQN_annot.pdf" target="_blank">[paper_annot]</a></strong> ✅</li>
+            <li>Prioritized Experience Replay, Schaul et al, 2015. Algorithm: <code>Prioritized Experience Replay (PER)</code> <strong><a href="https://arxiv.org/abs/1511.05952" target="_blank">[paper]</a></strong>
+              <ul>
+                <li>Dueling <strong><a href="https://arxiv.org/pdf/1511.06581.pdf" target="_blank">[paper]</a></strong></li>
+                <li>Distributional <strong><a href="https://arxiv.org/pdf/1707.06887.pdf" target="_blank">[paper]</a></strong></li>
+                <li>Rainbow <strong><a href="https://arxiv.org/abs/1710.02298" target="_blank">[paper]</a></strong></li>
+                <li>Quantile Regression <strong><a href="https://arxiv.org/abs/1710.10044" target="_blank">[paper]</a></strong></li>
+              </ul>
+            </li>
+            <li>Automated Control Method of Multiple Peg-in-Hole Assembly for Relay and Its Socket, 2024. <strong><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10721256" target="_blank">[paper]</a></strong> ✅</li>
+          </ul>
+        </div>
       </section>
     </main>
     <script>
-
       document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
           e.preventDefault();
@@ -506,11 +585,9 @@
               top: target.offsetTop - 80,
               behavior: 'smooth'
             });
-            
           }
         });
       });
-      
       const faders = document.querySelectorAll('.fade-in');
       const appearOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
       const appearOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -521,7 +598,6 @@
         });
       }, appearOptions);
       faders.forEach(fader => { appearOnScroll.observe(fader); });
-      
       function addTiltEffect(selector) {
         document.querySelectorAll(selector).forEach(card => {
           card.addEventListener('mousemove', function(e) {
