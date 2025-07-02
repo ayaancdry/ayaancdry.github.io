@@ -21,6 +21,7 @@
       margin: 0;
       min-height: 100vh;
       letter-spacing: 0.01em;
+      padding-top: 60px;
     }
     .navbar {
       background: transparent;
@@ -331,6 +332,9 @@
       body.sidebar-open {
         overflow: hidden;
       }
+      body {
+        padding-top: 60px;
+      }
     }
     .github-markdown-card {
       background: #232329;
@@ -401,20 +405,15 @@
       width: 40px;
       height: 40px;
       cursor: pointer;
-      z-index: 1001;
+      z-index: 2001;
       background: none;
       border: none;
       margin-left: auto;
       margin-right: 0.5em;
-    }
-    .hamburger span {
-      display: block;
-      width: 26px;
-      height: 3px;
-      margin: 4px 0;
-      background: #f4f4f5;
-      border-radius: 2px;
-      transition: 0.3s;
+      position: fixed;
+      top: 1em;
+      right: 1em;
+      box-shadow: 0 2px 8px 0 #0003;
     }
     /* Sidebar styles */
     .sidebar {
