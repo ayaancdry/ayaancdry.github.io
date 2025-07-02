@@ -7,13 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent: #f4f4f5; /* warm amber */
-      --accent-hover: #f59e42; /* deeper amber */
+      --accent: #f4f4f5; 
+      --accent-hover: #f59e42; 
       --text-main: #e0e0e0;
       --section-bg: #232323;
       --background: #181818;
     }
-    /* --- MINIMAL DARK THEME INSPIRED BY SCREENSHOT --- */
+    
     body {
       background: #18181b;
       color: #f4f4f5;
@@ -322,9 +322,32 @@
         max-width: 98vw;
         padding: 0 0.5em 2em 0.5em;
       }
-      .navbar-content {
-        max-width: 98vw;
-        padding: 0.4em 0.5em;
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1.2em;
+        margin-bottom: 1.5em;
+      }
+      .navbar-profile {
+        width: 44px;
+        height: 44px;
+        margin-right: 0;
+        margin-bottom: 0.7em;
+      }
+      .navbar-links {
+        flex-direction: column;
+        gap: 0.5em;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+      }
+      .nav-link {
+        font-size: 1em;
+        padding: 0.35em 1.1em;
+        width: 90vw;
+        max-width: 320px;
+        text-align: center;
+        margin: 0 auto;
       }
     }
     .github-markdown-card {
