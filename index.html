@@ -521,18 +521,18 @@
         <p>Hello! I'm <strong>Ayaan Choudhury</strong>, a pre-final-year Mechanical Engineering student at the Indian Institute of Technology Jodhpur. I conduct research in AI/ML at the intersection of robotics and 3D vision, specializing in LiDAR localization, perception, and shared autonomy techniques.</p>
         <h3>Core Skills</h3>
         <ul>
-          <li><strong><em>Programming Languages:</em></strong> C, C++, Python</li>
-          <li><strong><em>Simulation and Robotics:</em></strong> IsaacLab, Gazebo, ROS 2, Isaac Sim</li>
+          <li><strong><em>Programming Languages:</em></strong> Python, C++ </li>
+          <li><strong><em>Simulation and Robotics:</em></strong> Mujoco, Gazebo, ROS 2</li>
           <li><strong><em>Perception and Navigation:</em></strong> SLAM, LiDAR Processing, Sensor Fusion, Path Planning</li>
           <li><strong><em>Machine Learning and AI:</em></strong> Supervised and Unsupervised Learning, Model Optimization</li>
           <li><strong><em>Reinforcement Learning:</em></strong> Q-Learning, Deep Q-Networks, Policy Gradients</li>
-          <li><strong><em>Deep Learning:</em></strong> MLPs, CNNs, RNNs, GANs, Diffusion Models</li>
+          <li><strong><em>Deep Learning:</em></strong> MLPs, CNNs, RNNs, Diffusion Models</li>
           <li><strong><em>Computer Vision:</em></strong> OpenCV, Object Detection (YOLO, detectron2), OCR (Tesseract, PaddleOCR)</li>
           <li><strong><em>Libraries and Frameworks:</em></strong> PyTorch, TensorFlow, NumPy, Pandas, Matplotlib, Gymnasium</li>
           <li><strong><em>Tools and Platforms:</em></strong> Linux, Docker, NVIDIA CUDA, WSL 2, Git, Jupyter</li>
         </ul>
         <h3>Contact & Current Focus</h3>
-        <p>Currently immersed in Reinforcement Learning and 3D Vision, specifically exploring SLAM architectures and localization workflows in IsaacLab.</p>
+        <p>Currently immersed in Reinforcement Learning and 3D Vision, specifically exploring SLAM architectures and LiDAR Localisation workflows. </p>
         <p class="contact-links">
           <a href="mailto:b23me1013@iitj.ac.in">Email</a>
           <a href="https://www.linkedin.com/in/ayaan-choudhury/" target="_blank">LinkedIn</a>
@@ -542,26 +542,26 @@
       <section id="background" class="section fade-in">
         <h1>Research Experience</h1>
         
-        <section class="experience">
+      <section class="experience">
           <h3>3DVisLab, Department of CSE</h3>
           <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(Ongoing)</span></p>
           <p class="role"><em>Undergraduate Researcher (Supervisor: <span class="supervisor-link"><span class="chain-icon">🔗</span> <a href="https://3dcomputervision.github.io/" target="_blank">Prof Avinash Sharma</a></span>)</em></p>
           <p>Developing a LiDAR-based localization framework to improve autonomous navigation in sparse environments.</p>
           <ul class="responsibilities">
-            <li>Implementing projection of 3D point clouds into tri-planar views achieving a Chamfer loss of 0.05 to facilitate efficient feature extraction using Convolutional Neural Networks (CNNs).</li>
-            <li>Leveraging Cross-Attention mechanisms to learn robust geometric features across views, reducing translational error by ~30% (to &lt;0.2m) and significantly enhancing localization accuracy compared to standard baselines.</li>
+            <li>Implementing projection of 3D point clouds into tri-planar views achieving a Chamfer loss of 0.05 to facilitate efficient feature extraction.</li>
+            <li>Developing a Scene Coordinate Regression (SCR) pipeline for 6-DoF localization, utilizing a ResNet-based U-Net with CBAM attention to regress dense 3D world coordinates from multi-plane Bird's-Eye-View (BEV) projections.</li>
+            <li>Engineering a geometric inference module using RANSAC to align local LiDAR scans with predicted world coordinates, achieving robust pose estimation with &lt;1.1m translation and &lt;2.3&deg; rotation error, outperforming 9 out of 10 SOTA methods.</li>
           </ul>
         </section>
 
         <section class="experience">
           <h3>Department of Mechanical Engineering</h3>
-          <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(Ongoing)</span></p>
+          <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(August 2024 - Ongoing)</span></p>
           <p class="role"><em>Undergraduate Researcher (Supervisor: <span class="supervisor-link"><span class="chain-icon">🔗</span> <a href="https://sites.google.com/view/ribyabrahamboby/home" target="_blank">Prof Riby Abraham Boby</a></span>)</em></p>
-          <p>Developing an adaptive peg-in-hole assembly framework using Learning from Demonstration and Reinforcement Learning techniques, focusing on robust and efficient insertion under variable geometries.</p>
+          <p>Developing an adaptive peg-in-hole assembly framework utilizing multi-modal sensing and Sim2Real transfer, focusing on robust and efficient insertion under variable geometries.</p>
           <ul class="responsibilities">
-            <li>Integrating force-vision sensing in Isaac Sim simulations to learn motion primitives, ensuring sub-millimeter insertion accuracy across diverse shapes.</li>
-            <li>Incorporating geometry-based adaptation strategies to handle varied peg and hole configurations with minimal reprogramming.</li>
-            <li>Combining human demonstrations with online RL updates to optimize contact transitions, reducing cycle times and enhancing adaptation to uncertainties.</li>
+            <li>Integrating real-time spatial data from camera feeds within Mujoco to guide the manipulator, accurately navigating to the target peg and achieving sub-millimeter positioning accuracy across diverse initial configurations.</li>
+            <li>Processing high-frequency contact dynamics from force-torque sensor outputs to execute precise pick-and-insertion maneuvers, decreasing overall cycle time by 20% under uncertain assembly conditions.</li>
           </ul>
         </section>
 
@@ -569,13 +569,10 @@
           <h3>School of Artificial Intelligence and Data Science</h3>
           <p class="location">IIT Jodhpur, Rajasthan <span class="dates">(May 2025 – August 2025)</span></p>
           <p class="role"><em>Undergraduate Researcher (Supervisor: <span class="supervisor-link"><span class="chain-icon">🔗</span> <a href="https://bhivraj.wixsite.com/about" target="_blank">Prof Bhivraj Suthar</a></span>)</em></p>
-          <p>Developing Agribot, an autonomous agricultural robot for precision watering by integrating hardware design, software development, and computer vision for soil moisture detection, navigation, and control. Simulating performance and workflows in IsaacLab.</p>
+          <p>Developing Agribot, an autonomous agricultural robot for precision watering by integrating hardware design, software development, and computer vision for soil moisture detection, navigation, and control.</p>
           <ul class="responsibilities">
-            <li>Designing mechanical structure: base, water tank integration, and gripper arm mounting.</li>
-            <li>Implementing navigation using differential drive control and ROS2-based SLAM/waypoint planning.</li>
-            <li>Developing computer vision pipelines in OpenCV and TensorFlow for pot detection and soil dryness classification.</li>
-            <li>Creating control software in ROS2 and Python to orchestrate perception, planning, and actuation.</li>
-            <li>Simulating robot behaviors and validating algorithms in IsaacLab.</li>
+            <li>Designed and implemented ROS 2-based SLAM and waypoint planning modules, enabling Agribot to autonomously navigate greenhouse lanes with sub-meter localization accuracy.</li>
+            <li>Developed OpenCV and PyTorch pipelines for real-time pot detection and soil dryness classification, aiming to achieve over 90% accuracy in varying lighting conditions.</li>
           </ul>
         </section>
 
