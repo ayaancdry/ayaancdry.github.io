@@ -1,0 +1,80 @@
+cv:
+  name: Ayaan Choudhury
+  label: Final Year Mechanical Engineering Student
+  email: b23me1013@iitj.ac.in
+  location: Jodhpur, Rajasthan
+  image: profile2.jpeg
+  summary: Researcher in AI/ML at the intersection of robotics and 3D vision, with interests in LiDAR localization, perception, SLAM, reinforcement learning, and shared autonomy.
+
+  social_networks:
+    - network: GitHub
+      username: ayaancdry
+    - network: LinkedIn
+      username: ayaan-choudhury
+
+  sections:
+    Education:
+      - institution: Indian Institute of Technology Jodhpur
+        location: Jodhpur, Rajasthan
+        area: Mechanical Engineering
+        studyType: Bachelor of Technology
+        start_date: 2023
+        end_date: 2027
+        score: "CGPA: 8.88"
+
+      - institution: Delhi Public School Dwarka
+        location: Dwarka, New Delhi
+        studyType: High School Diploma
+        start_date: 2008
+        end_date: 2023
+        score: "AISSCE: 95.6"
+
+    Experience:
+      - company: 3DVisLab, Department of CSE, IIT Jodhpur
+        position: Undergraduate Researcher (Research)
+        location: Jodhpur, Rajasthan
+        start_date: 2024-08
+        end_date: Ongoing
+        summary: "Supervisor: Prof. Avinash Sharma. Developing a LiDAR-based localization framework to improve autonomous navigation in sparse environments."
+        highlights:
+          - Implementing projection of 3D point clouds into tri-planar views, achieving a Chamfer loss of 0.05 for efficient feature extraction.
+          - Developing a Scene Coordinate Regression pipeline for 6-DoF localization using a ResNet-based U-Net with CBAM attention to regress dense 3D world coordinates from multi-plane BEV projections.
+          - Engineering a geometric inference module using RANSAC to align local LiDAR scans with predicted world coordinates, achieving robust pose estimation with under 1.1 m translation and under 2.3 degree rotation error.
+
+      - company: Department of Mechanical Engineering, IIT Jodhpur
+        position: Undergraduate Researcher (Research)
+        location: Jodhpur, Rajasthan
+        start_date: 2024-08
+        end_date: Ongoing
+        summary: "Supervisor: Prof. Riby Abraham Boby. Developing an adaptive peg-in-hole assembly framework using multi-modal sensing and Sim2Real transfer."
+        highlights:
+          - Integrating real-time spatial data from camera feeds within MuJoCo to guide a manipulator to target pegs with sub-millimeter positioning accuracy across diverse initial configurations.
+          - Processing high-frequency force-torque sensor outputs to execute pick-and-insertion maneuvers, reducing overall cycle time by 20% under uncertain assembly conditions.
+
+      - company: School of Artificial Intelligence and Data Science, IIT Jodhpur
+        position: Undergraduate Researcher (Research)
+        location: Jodhpur, Rajasthan
+        start_date: 2025-05
+        end_date: 2025-08
+        summary: "Supervisor: Prof. Bhivraj Suthar. Developing Agribot, an autonomous agricultural robot for precision watering."
+        highlights:
+          - Designed and implemented ROS 2-based SLAM and waypoint planning modules for autonomous greenhouse lane navigation with sub-meter localization accuracy.
+          - Developed OpenCV and PyTorch pipelines for real-time pot detection and soil dryness classification, targeting over 90% accuracy in varying lighting conditions.
+
+      - company: Indian Institute of Technology Jodhpur
+        position: Teaching Assistant, Introduction to Machine Learning (CSL2010)
+        location: Jodhpur, Rajasthan
+        start_date: 2025-08
+        end_date: 2025-12
+        highlights:
+          - Mentored over 300 sophomore students through weekly lab sessions and technical guidance on core machine learning concepts.
+
+      - company: Kites AI
+        position: Intern (Industry)
+        location: Gurgaon, Haryana
+        start_date: 2024-05
+        end_date: 2024-06
+        highlights:
+          - Developed OCR solutions using OpenCV, Tesseract, Detectron2, PaddleOCR, and LayoutParser for health and medical invoices in collaboration with IIT Delhi and AIIMS, achieving 91.7% accuracy.
+          - Enhanced Lipikaar, an OCR library developed by IIT Delhi for indigenous languages, by fixing bugs, improving character recognition accuracy by 20%, and expanding language processing capabilities.
+
