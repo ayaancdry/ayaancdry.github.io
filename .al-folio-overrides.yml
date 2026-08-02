@@ -1,0 +1,31 @@
+---
+version: 1
+overrides:
+  _includes/projects_horizontal.liquid:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _includes/projects_horizontal.liquid
+    upstream_sha256: 0e15e46185ab819e275d2e435afc9d2896e373f6c874dcf624dcbc51d2f98e59
+    local_sha256: c791d70379a32dcfef9d98cfd5088330e0fc2a50cb97a477c31cf37c386f35c0
+    acknowledged_at: '2026-07-11'
+  _sass/_themes.scss:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _sass/_themes.scss
+    upstream_sha256: b581e43dcfbf21c14f388e2b585474c886fad62f6b5a0444f7832e7f69745f1f
+    local_sha256: daf64b68ca3f5f87495163b84235f926f319e1248181b9084957298ce5c71846
+    acknowledged_at: '2026-07-11'
+  _sass/_variables.scss:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: _sass/_variables.scss
+    upstream_sha256: 8a6b3e6a2dfcda6c7973dc7b19872f02d66d6c78bac677fc2dff0e272b3ebc84
+    local_sha256: 8faeb418a62db4426961f8ea694fbdae36b520cee61e74429ccaebf1ab69db8b
+    acknowledged_at: '2026-07-11'
+  assets/js/theme.js:
+    owner: al_folio_core
+    gem_version: 1.0.11
+    upstream_path: assets/js/theme.js
+    upstream_sha256: 404c3e26402451496cffea06946c5dd061c76c8512328bfdcbe2c3572052855e
+    local_sha256: 7721224384194e04dc5f4fb3c1773b144c0f1cfe50dcf1b6b96c7bf2d363296c
+    acknowledged_at: '2026-07-11'

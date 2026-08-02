@@ -1,0 +1,13 @@
+<div class="col mb-4">
+  <div class="p-4" style="background: var(--global-card-bg-color); border-radius: 12px; border: 1px solid var(--global-divider-color);">
+    <div style="font-size: 1.1em; font-weight: 600; margin-bottom: 0.5em; line-height: 1.45;">
+      <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}" style="color: var(--global-text-color); text-decoration: none;">{{ project.title }}</a>
+    </div>
+    <div style="color: var(--global-text-color-light); margin-bottom: 0.6em;">{{ project.content }}</div>
+    {% if project.github %}
+      <div>
+        <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer">[github]</a>
+      </div>
+    {% endif %}
+  </div>
+</div>
