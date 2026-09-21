@@ -37,7 +37,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   line-height: 1.6;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -144,6 +144,21 @@ h2.section-title {
   color: var(--text);
 }
 
+h3.subsection-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin: 2.2rem 0 1.2rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+h3.subsection-title:first-of-type {
+  margin-top: 0;
+}
+
 /* -------------------------------------------------------------------------
    Hero / About
 ------------------------------------------------------------------------- */
@@ -151,56 +166,52 @@ h2.section-title {
   padding-top: 2.5rem;
 }
 
-.hero {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.hero img.avatar {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid var(--border);
-  flex-shrink: 0;
-}
-
-.hero-text h1 {
+.about-header h1 {
   margin: 0 0 0.2rem;
-  font-size: 1.6rem;
+  font-size: 2.1rem;
 }
 
-.hero-text .subtitle {
+.about-header .subtitle {
   color: var(--text-muted);
-  margin: 0 0 1rem;
-  font-size: 1rem;
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
 }
 
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1.2rem 0 1.2rem;
+.about-body {
+  overflow: auto;
 }
 
-.tag {
-  padding: 0.3rem 0.85rem;
-  border-radius: 999px;
+.about-body p {
+  margin: 0 0 1.1rem;
+}
+
+.avatar-float {
+  float: right;
+  width: 220px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 14px;
   border: 1px solid var(--border);
-  background: var(--tag-bg);
-  color: var(--accent);
-  font-size: 0.8rem;
-  white-space: nowrap;
+  margin: 0 0 1.2rem 1.8rem;
 }
 
 .social-links {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   font-size: 0.92rem;
+  clear: both;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.icon-link svg {
+  flex-shrink: 0;
 }
 
 /* -------------------------------------------------------------------------
@@ -289,6 +300,13 @@ h2.section-title {
   margin-top: 0.3rem;
 }
 
+.card-tldr {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -313,14 +331,19 @@ footer {
    Responsive
 ------------------------------------------------------------------------- */
 @media (max-width: 480px) {
-  .hero {
-    flex-direction: column;
-    align-items: center;
+  .avatar-float {
+    float: none;
+    display: block;
+    width: 140px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 1.2rem;
+  }
+
+  .about-header {
     text-align: center;
   }
 
-  .social-links,
-  .tags {
+  .social-links {
     justify-content: center;
   }
 
