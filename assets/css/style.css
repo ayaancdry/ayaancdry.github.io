@@ -1,0 +1,334 @@
+/* -------------------------------------------------------------------------
+   Theme tokens
+------------------------------------------------------------------------- */
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f7f7f5;
+  --text: #1a1a1a;
+  --text-muted: #5a5a5a;
+  --border: #e3e3e0;
+  --accent: #34495e;
+  --accent-soft: #eef1f4;
+  --tag-bg: #f2f2f0;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+:root[data-theme="dark"] {
+  --bg: #14161a;
+  --bg-alt: #1b1e23;
+  --text: #e8e8e6;
+  --text-muted: #a3a3a0;
+  --border: #2c2f36;
+  --accent: #9db4c7;
+  --accent-soft: #202631;
+  --tag-bg: #20242b;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* -------------------------------------------------------------------------
+   Header / nav
+------------------------------------------------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+
+.nav-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+nav.links {
+  display: flex;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+nav.links a {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+nav.links a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+#theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  color: var(--text);
+  border-radius: 999px;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+#theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+/* -------------------------------------------------------------------------
+   Sections
+------------------------------------------------------------------------- */
+section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+h2.section-title {
+  font-size: 1.3rem;
+  margin: 0 0 1.5rem;
+  color: var(--text);
+}
+
+/* -------------------------------------------------------------------------
+   Hero / About
+------------------------------------------------------------------------- */
+#about {
+  padding-top: 2.5rem;
+}
+
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.hero img.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.hero-text h1 {
+  margin: 0 0 0.2rem;
+  font-size: 1.6rem;
+}
+
+.hero-text .subtitle {
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.2rem 0 1.2rem;
+}
+
+.tag {
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--tag-bg);
+  color: var(--accent);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  font-size: 0.92rem;
+}
+
+/* -------------------------------------------------------------------------
+   Experience / Education timeline
+------------------------------------------------------------------------- */
+.entry {
+  margin-bottom: 1.8rem;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+}
+
+.entry-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.entry-meta {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.entry-sub {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0.15rem 0 0.5rem;
+}
+
+.entry ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.entry li {
+  margin-bottom: 0.3rem;
+  font-size: 0.94rem;
+}
+
+/* -------------------------------------------------------------------------
+   Cards (publications, projects, blog)
+------------------------------------------------------------------------- */
+.card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1.02rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+
+.card-meta {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-links a {
+  font-size: 0.88rem;
+  margin-right: 0.9rem;
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.grid .card {
+  margin-bottom: 0;
+}
+
+/* -------------------------------------------------------------------------
+   Footer
+------------------------------------------------------------------------- */
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* -------------------------------------------------------------------------
+   Responsive
+------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-links,
+  .tags {
+    justify-content: center;
+  }
+
+  .entry-header {
+    flex-direction: column;
+  }
+
+  nav.links {
+    gap: 0.8rem;
+  }
+}

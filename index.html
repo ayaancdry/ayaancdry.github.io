@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  })();
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ayaan Choudhury</title>
+<meta name="description" content="Ayaan Choudhury — final year Mechanical Engineering student at IIT Jodhpur, researching robotics, LiDAR localization, SLAM, and 3D vision." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <span class="site-name">Ayaan Choudhury</span>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="theme-toggle" type="button" aria-label="Toggle theme"></button>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="about">
+    <div class="hero">
+      <img class="avatar" src="assets/img/profile2.jpeg" alt="Portrait of Ayaan Choudhury" />
+      <div class="hero-text">
+        <h1>Ayaan Choudhury</h1>
+        <p class="subtitle">Final Year Mechanical Engineering @ IIT Jodhpur</p>
+        <p>
+          Hello! I'm <strong>Ayaan Choudhury</strong>, a final year Mechanical Engineering student with an
+          Interdisciplinary Specialisation in Robotics and Mobility Systems at the
+          <a href="https://www.iitj.ac.in/" target="_blank" rel="noopener noreferrer">Indian Institute of Technology Jodhpur</a>.
+          I conduct research at the intersection of AI/ML, robotics, and 3D vision, with a focus on
+          LiDAR-based localization, SLAM, volumetric mapping, and robot perception.
+        </p>
+        <p>
+          <strong>Currently:</strong>
+        </p>
+        <ul>
+          <li>
+            Undergraduate Researcher at the
+            <a href="https://3dcomputervision.github.io/" target="_blank" rel="noopener noreferrer">3DVisLab</a>
+            (supervised by Prof. Avinash Sharma) — developing a LiDAR localization framework for autonomous
+            navigation in sparse outdoor environments.
+          </li>
+          <li>
+            Intern at <a href="https://www.botlabdynamics.com/" target="_blank" rel="noopener noreferrer">BotLab Dynamics</a>
+            — building real-time volumetric occupancy and signed-distance-field mapping for UAV navigation in
+            unmapped indoor environments.
+          </li>
+        </ul>
+        <div class="tags">
+          <span class="tag">LiDAR Localization</span>
+          <span class="tag">SLAM</span>
+          <span class="tag">Volumetric Mapping</span>
+          <span class="tag">3D Vision</span>
+          <span class="tag">Robot Perception</span>
+          <span class="tag">UAV Navigation</span>
+        </div>
+        <div class="social-links">
+          <a href="mailto:b23me1013@iitj.ac.in">Email</a>
+          <a href="https://github.com/ayaancdry" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/ayaan-choudhury" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=rZQzhi0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Undergraduate Researcher, 3DVisLab — Dept. of CSE, IIT Jodhpur</span>
+        <span class="entry-meta">Aug 2024 – Ongoing</span>
+      </div>
+      <p class="entry-sub">Supervisor: <a href="https://3dcomputervision.github.io/" target="_blank" rel="noopener noreferrer">Prof. Avinash Sharma</a></p>
+      <p>Developing a LiDAR-based localization framework to improve autonomous navigation in sparse environments.</p>
+      <ul>
+        <li>Implementing projection of 3D point clouds into tri-planar views, achieving a Chamfer loss of 0.05 to facilitate efficient feature extraction.</li>
+        <li>Developing a Scene Coordinate Regression (SCR) pipeline for 6-DoF localization, utilizing a ResNet-based U-Net with CBAM attention to regress dense 3D world coordinates from multi-plane Bird's-Eye-View (BEV) projections.</li>
+        <li>Engineering a geometric inference module using RANSAC to align local LiDAR scans with predicted world coordinates, achieving robust pose estimation with &lt;1.1m translation and &lt;2.3° rotation error.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Undergraduate Researcher, Dept. of Mechanical Engineering, IIT Jodhpur</span>
+        <span class="entry-meta">Aug 2024 – Dec 2025</span>
+      </div>
+      <p class="entry-sub">Supervisor: <a href="https://sites.google.com/view/ribyabrahamboby/home" target="_blank" rel="noopener noreferrer">Prof. Riby Abraham Boby</a></p>
+      <p>Developed an adaptive peg-in-hole assembly framework utilizing multi-modal sensing and Sim2Real transfer, focusing on robust and efficient insertion under variable geometries.</p>
+      <ul>
+        <li>Integrated real-time spatial data from camera feeds within MuJoCo to guide the manipulator, achieving sub-millimeter positioning accuracy across diverse initial configurations.</li>
+        <li>Processed high-frequency force-torque sensor outputs to execute precise pick-and-insertion maneuvers, decreasing overall cycle time by 20% under uncertain assembly conditions.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Undergraduate Researcher, School of AI and Data Science, IIT Jodhpur</span>
+        <span class="entry-meta">May 2025 – Aug 2025</span>
+      </div>
+      <p class="entry-sub">Supervisor: <a href="https://bhivraj.wixsite.com/about" target="_blank" rel="noopener noreferrer">Prof. Bhivraj Suthar</a></p>
+      <p>Developed Agribot, an autonomous agricultural robot for precision watering by integrating hardware design, software development, and computer vision for soil moisture detection, navigation, and control.</p>
+      <ul>
+        <li>Designed and implemented ROS 2-based SLAM and waypoint planning modules, enabling Agribot to autonomously navigate greenhouse lanes with sub-meter localization accuracy.</li>
+        <li>Developed OpenCV and PyTorch pipelines for real-time pot detection and soil dryness classification, achieving over 90% accuracy in varying lighting conditions.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Research Intern, BotLab Dynamics</span>
+        <span class="entry-meta">May 2026 – Present</span>
+      </div>
+      <p class="entry-sub">Noida, Uttar Pradesh</p>
+      <p>Developing autonomous navigation capabilities for unmanned aerial vehicles operating in previously unmapped indoor environments.</p>
+      <ul>
+        <li>Developing real-time volumetric occupancy mapping from onboard sensor streams, enabling UAVs to incrementally represent free, occupied, and unknown space during flight.</li>
+        <li>Integrating signed-distance-field-based representations for collision checking and trajectory generation in cluttered indoor environments.</li>
+        <li>Supporting safe and reactive replanning by updating local environment representations as new obstacles are observed.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Computer Vision Intern, Kites AI</span>
+        <span class="entry-meta">May 2024 – Jun 2024</span>
+      </div>
+      <p class="entry-sub">Gurgaon, Haryana</p>
+      <ul>
+        <li>Developed and implemented OCR solutions using OpenCV, Tesseract, Detectron2, PaddleOCR, and LayoutParser for processing health and medical invoices in collaboration with IIT Delhi and AIIMS, achieving 91.7% accuracy.</li>
+        <li>Enhanced Lipikaar, an OCR library developed by IIT Delhi for indigenous languages, by fixing bugs, improving character recognition accuracy by 20%, and expanding language processing capabilities.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Teaching Assistant, Introduction to Machine Learning (CSL2010), IIT Jodhpur</span>
+        <span class="entry-meta">Aug 2025 – Dec 2025</span>
+      </div>
+      <ul>
+        <li>Mentored a cohort of over 300 sophomore students, facilitating weekly lab sessions and providing technical guidance to reinforce core machine learning concepts.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Indian Institute of Technology Jodhpur</span>
+        <span class="entry-meta">2023 – 2027</span>
+      </div>
+      <p class="entry-sub">Bachelor of Technology in Mechanical Engineering · CGPA: 8.88</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Delhi Public School, Dwarka</span>
+        <span class="entry-meta">2008 – 2023</span>
+      </div>
+      <p class="entry-sub">High School Diploma · AISSCE: 95.6</p>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2 class="section-title">Publications</h2>
+
+    <div class="card">
+      <div class="card-title">MB-Loc: Multi-planar Bird's-eye-view Localization in outdoor LiDAR scenes</div>
+      <div class="card-meta">Ayaan Choudhury, Preet Savalia, Anirudh Pydah, Avinash Sharma · under review, CoRL 2026</div>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/2606.08744" target="_blank" rel="noopener noreferrer">arXiv</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-title">SpectraScore</div>
+        <div class="card-desc">Semantic-perceptual color realism metric and image colorization model.</div>
+        <div class="card-links"><a href="https://github.com/ayaancdry/SpectraScore/tree/ayaan" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Dual-Arm Exoskeleton</div>
+        <div class="card-desc">MATLAB kinematics and simulation for a 14-DOF dual-arm exoskeleton.</div>
+        <div class="card-links"><a href="https://github.com/ayaancdry/DualArmExoskeleton" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Smart Search</div>
+        <div class="card-desc">Responsive autocomplete with Trie and Suffix Trie data structures.</div>
+        <div class="card-links"><a href="https://github.com/ayaancdry/smartsearch" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DemocrEase</div>
+        <div class="card-desc">Client-server voting system with bar graph visualization.</div>
+        <div class="card-links"><a href="https://github.com/ayaancdry/DemocrEase" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Heart Attack Analysis &amp; Prediction</div>
+        <div class="card-desc">Machine learning model for heart attack risk prediction.</div>
+        <div class="card-links"><a href="https://github.com/ayaancdry/Heart-Attack-Analysis-Prediction" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Deep RL Implementations</div>
+        <div class="card-desc">Deep reinforcement learning examples in Python.</div>
+        <div class="card-links"><a href="https://github.com/ayaancdry/deep-RL-implementations" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Machine Learning Starters</div>
+        <div class="card-desc">From-scratch implementations of foundational ML models.</div>
+        <div class="card-links"><a href="https://github.com/ayaancdry/machinelearning-starters" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+      <div class="card">
+        <div class="card-title">DSA Implementations</div>
+        <div class="card-desc">Core data structures and algorithms in C and C++.</div>
+        <div class="card-links"><a href="https://github.com/ayaancdry/dsa_implementations" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2 class="section-title">Blog</h2>
+
+    <div class="card">
+      <div class="card-title">Porting a Real Robotics Stack from ROS1 to ROS2: A Guide</div>
+      <div class="card-meta">Jul 14, 2026</div>
+      <div class="card-desc">A practical guide to porting a real robotics stack from ROS1 to ROS2, covering the migration process and lessons learned along the way.</div>
+      <div class="card-links"><a href="https://medium.com/@ayaan.cdry/porting-a-real-robotics-stack-from-ros1-to-ros2-a-guide-9ae869cd1591" target="_blank" rel="noopener noreferrer">Read on Medium</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Tutorial: How to Spawn a Robot in a Custom Gazebo World using ROS2 Humble</div>
+      <div class="card-meta">Jun 12, 2025</div>
+      <div class="card-desc">A step-by-step guide to spawning robots in custom Gazebo worlds using ROS 2 Humble, with practical tips and visuals for robotics simulation enthusiasts.</div>
+      <div class="card-links"><a href="https://medium.com/@ayaan.cdry/tutorial-how-to-spawn-a-robot-in-a-custom-gazebo-world-using-ros2-humble-e4a2f3c6e95b" target="_blank" rel="noopener noreferrer">Read on Medium</a></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Step-by-step Upgrading Ubuntu 20.04 to 22.04 on a Dual Boot System</div>
+      <div class="card-meta">Jun 4, 2025</div>
+      <div class="card-desc">A complete walkthrough for safely upgrading Ubuntu on a dual-boot system, with troubleshooting tips and visuals for a smooth transition to Jammy Jellyfish.</div>
+      <div class="card-links"><a href="https://medium.com/@ayaan.cdry/step-by-step-upgrading-ubuntu-20-04-to-22-04-on-a-dual-boot-system-c19828b209a4" target="_blank" rel="noopener noreferrer">Read on Medium</a></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p>The best way to reach me is by email.</p>
+    <div class="social-links">
+      <a href="mailto:b23me1013@iitj.ac.in">b23me1013@iitj.ac.in</a>
+      <a href="https://github.com/ayaancdry" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/ayaan-choudhury" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=rZQzhi0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Ayaan Choudhury
+</footer>
+
+<script src="assets/js/theme.js"></script>
+</body>
+</html>
